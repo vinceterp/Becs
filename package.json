@@ -8,7 +8,16 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "autoprefixer-stylus": "0.14.0",
+    "firebase": "^7.6.0",
+    "netlify-cli": "^2.40.0",
+    "prop-types": "^15.6.0",
+    "re-base": "4.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
+    "serve": "^11.3.0",
+    "stylus": "0.54.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,9 +35,12 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
       "last 1 firefox version",
+      "last 1 chrome version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }
