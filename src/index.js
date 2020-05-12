@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './CSS/index.css';
-import App from './App';
-// import * as serviceWorker from './serviceWorker';
+import App from './components/App';
+import './CSS/App.css';
+
+const darkModeBtn= document.querySelector('#darkMode');
+
+darkModeBtn.addEventListener('input', toggleDarkMode);
+
+function toggleDarkMode(event){
+    if (event.target.checked){
+        document.body.style.background= "#1a1a1a";
+    }else{
+        document.body.style.background= "#d4d4d4";
+    }
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('main')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
