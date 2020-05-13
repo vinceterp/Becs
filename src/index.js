@@ -19,5 +19,5 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('main')
+  document.querySelector('#main')
 );
