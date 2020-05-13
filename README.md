@@ -6,9 +6,9 @@ BECS databaseURL: "https://becs-3a3bb.firebaseio.com"
 
 In the project directory, you can run:
 
-### `npm start`
-
 *Don't forget to run 'npm install' first to install the project dependencies
+
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
