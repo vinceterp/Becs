@@ -1,23 +1,26 @@
 import React from 'react';
 import '../CSS/App.css';
-import books from '../sample-books.js';
+import * as sampleBooks from '../sample-books.js';
 import Header from './Header.js';
+import Book from './Book.js';
 
 export default class App extends React.Component {
 
     state = {
-        sampleBooks: books,
+        books: sampleBooks,
     }
 
     render(){
         return (
             <div className="menu--container">
-                {console.log(this.state.sampleBooks)}
+                {/* {console.log(Object.keys(this.state.books.default))} */}
                 <div className= 'book-list'>
-                    
                     <Header tagline= {'Book E-Commerce System'} />
+                    <ul className= 'books'>
+                        {Object.keys(this.state.books.default).map((key)=>{return <Book /*addToOrder= {this.addToOrder}*/ details= {this.state.books.default[key]} index={key} key={key}/>})}
+                    </ul>
                 </div>
-                <div className= 'order-wrapper'>
+                <div className= 'order-list-container'>
 
                 </div>
                 <div className= 'inventory'>
@@ -26,5 +29,4 @@ export default class App extends React.Component {
             </div>
         )
     }
-
 }
