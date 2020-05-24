@@ -10,6 +10,10 @@ export default class App extends React.Component {
         books: sampleBooks,
     }
 
+    loadSampleBooks = () => {
+        this.setState({books: sampleBooks});
+    }
+
     render(){
         return (
             <div className="menu--container">

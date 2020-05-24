@@ -448,7 +448,7 @@ ul.order li span.count span {
   margin-top: 2rem;
   transform: translateZ(0);
 }
-.menu-fish {
+.menu-book {
   border-bottom: 2px solid #000;
   border-top: 1px solid #000;
   padding-bottom: 2rem;
@@ -457,21 +457,21 @@ ul.order li span.count span {
   clear: both;
   overflow: hidden;
 }
-.menu-fish p {
+.menu-book p {
   margin: 0;
   font-size: 1.8rem;
 }
-.menu-fish .fish-name {
+.menu-book .book-name {
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.menu-fish .price {
+.menu-book .price {
   font-size: 1.4rem;
   justify-content: flex-end;
 }
-.menu-fish img {
+.menu-book img {
   float: left;
   width: 150px;
   margin-right: 1rem;
