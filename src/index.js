@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import Router from './components/Router';
 import './CSS/App.css';
 
 const darkModeBtn= document.querySelector('#darkMode');
@@ -17,7 +17,7 @@ function toggleDarkMode(event){
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router />
   </React.StrictMode>,
   document.getElementById('main')
 );
