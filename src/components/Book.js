@@ -20,7 +20,7 @@ export default class Books extends React.Component{
                     <span className= 'price'>{price}</span>
                 </h3>
                 <p>by {author}</p>
-                <button disabled={isAvailable} onClick={this.handleClick}>{isAvailable ? "Add To Order" : "Sold Out!"}</button>
+                <button disabled={isAvailable} onClick={this.handleClick}>{!isAvailable ? "Add To Order" : "Sold Out!"}</button>
             </li>
         );
     }
