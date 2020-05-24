@@ -11,7 +11,7 @@ export default class Books extends React.Component{
     render(){
         console.log(this.props.details);
         const {imageSrc, price, title, stock, author}= this.props.details;
-        const isAvailable = stock === 0;
+        const isAvailable = stock === '0';
         return (
             <li className= 'menu-book'>
                 <img src= {imageSrc} alt= {title}/>
