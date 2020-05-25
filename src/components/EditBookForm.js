@@ -10,7 +10,6 @@ export default class EditBookForm extends React.Component{
     }
 
     handleChange = (event) => {
-        // const key= this.props.bookDetails[0];
         const book= this.props.bookDetails[1];
         const value= event.currentTarget.value;
         const name= event.currentTarget.name;    
@@ -20,7 +19,6 @@ export default class EditBookForm extends React.Component{
 
     render(){
         const book= this.props.bookDetails[1];
-        const key= book.barcode;
         return (
             <React.Fragment>
                 <div className= 'book-edit'>
@@ -29,7 +27,7 @@ export default class EditBookForm extends React.Component{
                     <input name="image" type= "text" defaultValue= {book.imageSrc} onChange= {this.handleChange}/>
                     <input name="price" type= "text" defaultValue= {book.price} onChange= {this.handleChange}/>
                     <input name="stock" type= "number" min= "0" defaultValue= {book.stock} onChange= {this.handleChange}/>
-                    <button name= 'delete' onClick={() => this.props.deleteBook()}>Delete Book</button>
+                    <button name= 'delete' onClick={() => this.props.deleteBook(book.barcode)}>Delete Book</button>
                 </div>
             </React.Fragment>
             )

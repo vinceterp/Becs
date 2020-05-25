@@ -9,6 +9,12 @@ import PropTypes from 'prop-types';
 
 export default class Inventory extends React.Component{
 
+    static propTypes= {
+        books: PropTypes.object,
+        deleteBook: PropTypes.func,
+        updateBook: PropTypes.func,
+    }
+
     state= {
         uid: true,
     }
@@ -29,7 +35,7 @@ export default class Inventory extends React.Component{
                     <AddBookForm addBook={this.props.addBookToState}/>
                     <button className= "book-edit" onClick={this.props.loadSamples}>Load Sample Books</button>
                     {button}
-                    {Object.entries(this.props.books).map((book)=> { return <EditBookForm key= {book.barcode} deleteBook= {this.props.deleteBook} updateBook= {this.props.updateBook} bookDetails= {book}/>})}
+                    {Object.entries(this.props.books).map((book)=> {return <EditBookForm key= {book.barcode} deleteBook= {this.props.deleteBook} updateBook= {this.props.updateBook} bookDetails= {book}/>})}
                     {button}
                 </div>
     }

@@ -44,10 +44,13 @@ export default class App extends React.Component {
 
     deleteBook = (barcode) => {
         const books= {...this.state.books};
-        //console.log(books[`${barcode}`]);
-        books[`${barcode}`] = null;
-        //books.barcode= null;
-        this.setState({books});
+
+        //For future reference, do not use books[barcode]= null because it will result in a null pointer exception in the books object when a Book tries to render
+        //React will stil try to load the null book state object
+        //Unless place in books state object is non-existent
+        delete books[barcode];
+      
+        this.setState({books: books});
     }
 
     componentDidUpdate(){
@@ -60,14 +63,13 @@ export default class App extends React.Component {
 
     componentDidMount(){
         //connecting to firebase
-        //this.ref= base.syncState('/books', {context: this, state: 'books'});
+        this.ref= base.syncState('/books', {context: this, state: 'books'});
 
     }
 
     render(){
         return (
             <div className="menu--container">
-                {/* {console.log(Object.keys(this.state.books.default))} */}
                 <div className= 'book-list'>
                     <Header tagline= {'Book E-Commerce System'} />
                     <ul className= 'books'>

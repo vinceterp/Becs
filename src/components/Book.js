@@ -9,7 +9,6 @@ export default class Books extends React.Component{
     }
 
     render(){
-        console.log(this.props.details);
         const {imageSrc, price, title, stock, author}= this.props.details;
         const isAvailable = stock === '0';
         return (
