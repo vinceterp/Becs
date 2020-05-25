@@ -11,7 +11,7 @@ const books = {
     '00000006' : new Book ("Alice's Adeventures in Wonderland", "Lewis Carroll", "00000006","/book-covers/220px-Alice's_Adventures_in_Wonderland_cover_(1865).jpg","1500.00",false, 0, "5"),
     '00000007' : new Book ("The Hobbit", "J.R.R. Tolkien", "00000007","/book-covers/220px-TheHobbit_FirstEdition.jpg","1400.00",false, 0, "13"),
     '00000008' : new Book ("And Then There Were None", "Agatha Christie", "00000008","/book-covers/And_Then_There_Were_None_US_First_Edition_Cover_1940.jpg","1300.00",false, 0, "2"),
-    '00000009' : new Book ("Dream of the Red Chamber", "Cao Xueqin", "00000009","/book-covers/dreamredjpg","1200.00",false, 0, "4"),
+    '00000009' : new Book ("Dream of the Red Chamber", "Cao Xueqin", "00000009","/book-covers/dreamred.jpg","1200.00",false, 0, "4"),
     '00000010' : new Book ("The Lion the Waitch and the Wardrobe", "C.S.Lewis", "00000010","/book-covers/220px-TheLionWitchWardrobe(1stEd).jpg","1100.00",false, 0, "5"),
     '00000011' : new Book ("She: A History of Adventure", "H.Rider Haggard", "00000011","/book-covers/220px-SHE,_A_History_of_Adventure_(1st_Edition_Cover),_by_H._Rider_Haggard.jpg","1000.00",false, 0, "9"),
     '00000012' : new Book ("The Adventures of Pinocchio", "Carlo Collodi", "00000012","/book-covers/Pinocchio.jpg","900.00",false, 0, "0"),

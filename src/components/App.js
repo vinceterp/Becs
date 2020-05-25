@@ -4,21 +4,23 @@ import * as sampleBooks from '../sample-books.js';
 import Header from './Header.js';
 import Book from './Book.js';
 import base from '../base.js';
+import Inventory from './Inventory.js';
+import Order from './Order.js';
 
 export default class App extends React.Component {
 
     state = {
-        books: sampleBooks,
+        books: {},
         order: {},
     }
 
     loadSampleBooks = () => {
-        this.setState({books: sampleBooks});
+        this.setState({books: sampleBooks.default});
     }
 
     addBookToState= (book) => {
         const newBooks= {...this.state.books};
-        newBooks[`${Date.now()}`]= book;
+        newBooks[book.barcode]= book;
         this.setState({books: newBooks});
     }
 
@@ -42,7 +44,9 @@ export default class App extends React.Component {
 
     deleteBook = (barcode) => {
         const books= {...this.state.books};
-        books[barcode]= null;
+        //console.log(books[`${barcode}`]);
+        books[`${barcode}`] = null;
+        //books.barcode= null;
         this.setState({books});
     }
 
@@ -50,9 +54,13 @@ export default class App extends React.Component {
         
     }
 
+    componentWillUnmount(){
+        base.removeBinding(this.ref);
+    }
+
     componentDidMount(){
-        
-        this.ref= base.syncState(`/books`, {context: this, state: 'books'});
+        //connecting to firebase
+        //this.ref= base.syncState('/books', {context: this, state: 'books'});
 
     }
 
@@ -63,15 +71,11 @@ export default class App extends React.Component {
                 <div className= 'book-list'>
                     <Header tagline= {'Book E-Commerce System'} />
                     <ul className= 'books'>
-                        {Object.keys(this.state.books.default).map((key)=>{return <Book /*addToOrder= {this.addToOrder}*/ details= {this.state.books.default[key]} index={key} key={key}/>})}
+                        {Object.keys(this.state.books).map((key)=>{return <Book addToOrder= {this.addToOrder} details= {this.state.books[key]} index={key} key={key}/>})}
                     </ul>
                 </div>
-                <div className= 'order-list-container'>
-
-                </div>
-                <div className= 'inventory'>
-
-                </div>
+                <Order removeFromOrder= {this.removeFromOrder} books={this.state.books} order={this.state.order}/>
+                <Inventory deleteBook= {this.deleteBook} updateBook= {this.updateBook} books= {this.state.books} addBookToState={this.addBookToState} loadSamples={this.loadSampleBooks}/>
             </div>
         )
     }
