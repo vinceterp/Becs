@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 //import base, {firebaseApp} from '../base.js';
 //import firebase from 'firebase';
 
-
 export default class Inventory extends React.Component{
 
     static propTypes= {
@@ -39,5 +38,4 @@ export default class Inventory extends React.Component{
                     {button}
                 </div>
     }
-
 }
