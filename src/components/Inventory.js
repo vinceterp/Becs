@@ -13,6 +13,8 @@ export default class Inventory extends React.Component{
         deleteBook: PropTypes.func,
         updateBook: PropTypes.func,
         loadSamples: PropTypes.func,
+        addBookToState: PropTypes.func,
+        bookDetails: PropTypes.object,
     }
 
     state= {
@@ -23,15 +25,14 @@ export default class Inventory extends React.Component{
 
     authHandler = async authData=> {
         if (!authData) return;
-        const books= await base.fetch('/books', {context: this});
+        const books= await base.fetch('/', {context: this});
         console.log(books.owner);
         
         if (!books.owner){
-            await base.post(`/books/owner`, {data: authData.user.uid||authData.uid});
+            await base.post('/owner', {data: authData.user.uid||authData.uid});
             this.setState({uid: authData.user.uid || authData.uid, owner: books.owner || authData.user.uid || authData.uid, });
         }
         this.setState({uid: authData.user.uid || authData.uid});
-        this.setState({owner: books.owner});
     }
 
     logout= async () => {
@@ -53,20 +54,17 @@ export default class Inventory extends React.Component{
 
     render(){
         const button= <div><button className='book-edit' onClick={this.logout}>SignOut</button></div>
-        const authenticatedAdmin= this.state.uid === this.state.owner;
 
         if (!this.state.uid){
             return <Login authenticate={this.authenticate}/>
-        }else if (authenticatedAdmin){
-            return <div className= "Inventory">Inventory
+        }
+        
+        return (<div className= "Inventory">Inventory
                     <AddBookForm addBook={this.props.addBookToState}/>
                     <button className= "book-edit" onClick={this.props.loadSamples}>Load Sample Books</button>
                     {button}
                     {Object.entries(this.props.books).map((book)=> {return <EditBookForm key= {book.barcode} deleteBook= {this.props.deleteBook} updateBook= {this.props.updateBook} bookDetails= {book}/>})}
                     {button}
-                </div>
-        }else{
-            return <Login authenticate={this.authenticate}/>
-        }     
+                </div>);
     }
 }

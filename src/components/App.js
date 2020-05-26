@@ -40,17 +40,19 @@ export default class App extends React.Component {
         const books= {...this.state.books};
         if (books[barcode]) books[barcode] = updatedBook;
         this.setState({books: books});
+        
     }
 
     deleteBook = (barcode) => {
-        const books= {...this.state.books};
+        const newBooks= {...this.state.books};
 
         //For future reference, do not use books[barcode]= null because it will result in a null pointer exception in the books object when a Book tries to render
         //React will stil try to load the null book state object
         //Unless place in books state object is non-existent
-        delete books[barcode];
+        delete newBooks[barcode];
       
-        this.setState({books: books});
+        this.setState({books: newBooks});
+        console.log('deleting');
     }
 
     componentDidUpdate(){

@@ -27,7 +27,7 @@ export default class EditBookForm extends React.Component{
                     <input name="image" type= "text" defaultValue= {book.imageSrc} onChange= {this.handleChange}/>
                     <input name="price" type= "text" defaultValue= {book.price} onChange= {this.handleChange}/>
                     <input name="stock" type= "number" min= "0" defaultValue= {book.stock} onChange= {this.handleChange}/>
-                    <button name= 'delete' onClick={() => this.props.deleteBook(book.barcode)}>Delete Book</button>
+                    <button name= 'delete' onClick={() => this.props.deleteBook(this.props.bookDetails[0])}>Delete Book</button>
                 </div>
             </React.Fragment>
             )
