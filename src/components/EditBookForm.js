@@ -26,10 +26,12 @@ export default class EditBookForm extends React.Component{
                     <input name="author" type="text" defaultValue= {book.author} onChange= {this.handleChange}/>
                     <input name="image" type= "text" defaultValue= {book.imageSrc} onChange= {this.handleChange}/>
                     <input name="price" type= "text" defaultValue= {book.price} onChange= {this.handleChange}/>
+                    <input name="promoCode" type= "text" placeholder= "Promo Code" className= 'promo_code' defaultValue= {book.promoCode} onChange= {this.handleChange}/>
+                    <input name="promoPrice" type= "number" placeholder= "Promo Price" defaultValue= {book.promoPrice} onChange= {this.handleChange}/>
                     <input name="stock" type= "number" min= "0" defaultValue= {book.stock} onChange= {this.handleChange}/>
                     <button name= 'delete' onClick={() => this.props.deleteBook(this.props.bookDetails[0])}>Delete Book</button>
                 </div>
             </React.Fragment>
-            )
+        )
     }
 }

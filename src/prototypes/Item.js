@@ -6,5 +6,7 @@ export default class Item {
         this.reorder = reorder || false;
         this.reorderAmount = reorderAmount || 0;
         this.stock = stock || 0;
+        this.promoCode= "";
+        this.promoPrice= this.price;
     }
 }

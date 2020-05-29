@@ -46,6 +46,18 @@ export default class Order extends React.Component{
         }
         return prevTotal;
     }
+
+    handlePromoCodeChange = (event) => {
+        const inputCode= event.target.value.toUpperCase();
+
+        const book= Object.values(this.props.books).find(element => element.promoCode === inputCode);
+        console.log(book ? book.price = book.promoPrice : "No promotion @ price ");
+        //return book ? book.price = book.promoPrice: null;
+    }
+
+    componentDidUpdate () {
+        return this.render();
+    }
     
     render(){
         const orderIds= Object.keys(this.props.order);
@@ -55,6 +67,7 @@ export default class Order extends React.Component{
             <div className= "order-wrap">
                 <h2>Order</h2>
                 <TransitionGroup component='ul' className='order'>{orderIds.map(this.renderOrders)} </TransitionGroup>
+                <input placeholder= "Promo Code" defaultValue= "" className= 'promo_code' type= "text" onChange= {this.handlePromoCodeChange}/>
                 <div className= 'total'>
                     Total:
                     <strong>{formatPrice(total)}</strong>
