@@ -48,6 +48,5 @@
   },
   "jest": {
     "verbose": true
-    
   }
 }
