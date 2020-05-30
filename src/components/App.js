@@ -27,6 +27,7 @@ export default class App extends React.Component {
     addToOrder = (barcode) => {
         const order= {...this.state.order};
         order[barcode]= order[barcode] + 1 || 1;
+        console.log(!this.setState({order}));
         this.setState({order});
     }
 
@@ -39,8 +40,7 @@ export default class App extends React.Component {
     updateBook = (barcode, updatedBook) => {
         const books= {...this.state.books};
         if (books[barcode]) books[barcode] = updatedBook;
-        this.setState({books: books});
-        
+        this.setState({books: books});   
     }
 
     deleteBook = (barcode) => {
@@ -52,7 +52,6 @@ export default class App extends React.Component {
         delete newBooks[barcode];
       
         this.setState({books: newBooks});
-        console.log('deleting');
     }
 
     componentDidUpdate(){
@@ -66,7 +65,7 @@ export default class App extends React.Component {
     componentDidMount(){
         //connecting to firebase
         this.ref= base.syncState('/books', {context: this, state: 'books'});
-
+        return this.ref;
     }
 
     render(){

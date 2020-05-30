@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 
 export default class Order extends React.Component{
 
+    state= {
+        activePromo: false,
+    }
+
     static propTypes= {
         books: PropTypes.object,
         order: PropTypes.object,
         removeFromOrder: PropTypes.func,
-
     }
    
     renderOrders = (orderId) => {
@@ -50,13 +53,16 @@ export default class Order extends React.Component{
     handlePromoCodeChange = (event) => {
         const inputCode= event.target.value.toUpperCase();
 
-        const book= Object.values(this.props.books).find(element => element.promoCode === inputCode);
-        console.log(book ? book.price = book.promoPrice : "No promotion @ price ");
+        const book= Object.values(this.props.books).find(element => element.promoCode.toUpperCase() === inputCode);
+        if (book){
+            console.log(book ? book.promoPrice : "No promotion @ price ");
+            book.price = book.promoPrice;
+            console.log(book);
+            console.log(this.props.books);
+            this.setState({activePromo: true});
+        }
+        this.forceUpdate();
         //return book ? book.price = book.promoPrice: null;
-    }
-
-    componentDidUpdate () {
-        return this.render();
     }
     
     render(){
